@@ -4,7 +4,7 @@ PortSystem          1.0
 
 name                cabal
 version             3.10.1.0
-revision            0
+revision            1
 categories          lang haskell devel
 platforms           darwin
 license             BSD
@@ -74,9 +74,10 @@ if {${build_arch} eq {arm64}} {
 # cabal may use these MacPorts build tools:
 # alex, ar, strip, cpphs, happy, hscolour, ld, pkg-config
 # https://github.com/haskell/cabal/blob/master/Cabal/src/Distribution/Simple/Program/Builtin.hs
-depends_lib-append  port:cctools \
-                    port:ld64 \
+depends_build-append \
                     port:pkgconfig
+depends_lib-append  port:cctools \
+                    port:ld64
 
 # cabal uses curl or wget
 depends_lib-append  port:curl \
